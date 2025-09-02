@@ -58,10 +58,10 @@ h1, h2, h3, h4, h5, h6 {
 */
 
 @font-face {
-  font-family: 'Nunito Sans';
+  font-family: 'Tirra';
   font-style: normal;
   font-weight: 400;
-  src: url('./assets/fonts/NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf') format('truetype');
+  src: url('./assets/fonts/Tirra-Regular.ttf') format('truetype');
 }
 
 
@@ -84,13 +84,8 @@ body {
   align-items: center;
   justify-content: center;
   padding: 1rem;
-  font-family: "Nunito Sans", sans-serif;
-  font-optical-sizing: auto;
+  font-family: "Tirra", sans-serif;
   font-weight: 400;
-  font-style: normal;
-  font-variation-settings:
-    "wdth" 100,
-    "YTLC" 500;
 }
 
 a {
