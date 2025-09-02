@@ -53,6 +53,18 @@ h1, h2, h3, h4, h5, h6 {
   isolation: isolate;
 }
 
+/*
+  Begin styles
+*/
+
+@font-face {
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf') format('truetype');
+}
+
+
 :root {
   --color-green: #556B2F;
   --color-green-light: #c7e1a1;
