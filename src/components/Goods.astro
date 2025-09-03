@@ -1,0 +1,10 @@
+---
+import { getCollection } from 'astro:content';
+const goods = (await getCollection('goods'));
+const recent = goods[0];
+---
+<aside>
+    <h3>Goods</h3>
+    <div set:html={recent.rendered?.html} />
+    <a href="/goods/">View more goods</a>
+</aside>
