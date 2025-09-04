@@ -1,5 +1,6 @@
 ---
 import '/style.css';
+import Footer from '../components/Footer.astro';
 ---
 
 <html lang="en">
@@ -15,8 +16,9 @@ import '/style.css';
 		<title>Glenn Weatherson lives here</title>		
 	</head>
 	<body>
-		<section class="container">
+		<main class="container">
             <slot />
-		</section>		
+		</main>
+		<Footer />
 	</body>
 </html>

@@ -3,30 +3,29 @@ import Layout from '../layouts/Layout.astro';
 import Goods from '../components/Goods.astro';
 ---
 <Layout title="Home Page">
-	<h1>Glenn lives here.</h1>
+	<section>
+		<h1>Glenn lives here</h1>
 
-	<p>I'm a web developer living in Reno, Nevada. During the day I work at <a href="https://970design.com">970 Design</a>. I'm open to projects on the side.</p>
+		<p>I'm a web developer living in Reno, Nevada. During the day I work at <a href="https://970design.com">970 Design</a>, I'm also open to projects on the side.</p>
 
-	<p>This website may turn into something more than a single page, but we have to start somewhere and I can always add things as time goes on.</p>
+		<h2>Favorite things outside of work:</h2>
+		
+		<ul>
+			<li>Mountain biking, and bicycles in general.</li>
+			<li>Trying to make my dogs tired.</li>
+			<li>Video games like <a href="https://www.counter-strike.net/cs2">CS2</a> and <a href="https://store.steampowered.com/app/3241660/REPO/">R.E.P.O.</a></li>
+			<li>Trying not to die.</li>
+			<li>Finding new music.</li>
+			<li>Snowboarding.</li>
+			<li>Grilling hot dogs.</li>
+		</ul>
 
-	<h2>Favorite things outside of work are:</h2>
-	
-	<ul>
-		<li>Mountain biking, and bicycles in general.</li>
-		<li>Trying to make my dogs tired.</li>
-		<li>Video games like <a href="https://www.counter-strike.net/cs2">CS2</a> and <a href="https://store.steampowered.com/app/3241660/REPO/">R.E.P.O.</a></li>
-		<li>Drinking those bubbly waters.</li>
-		<li>Finding new music</li>
-		<li>Snowboarding</li>
-		<li>Grilling hot dogs</li>
-	</ul>
+		<h2>Me elsewhere</h2>
+		<p>
+			gweatherson@gmail.com<br>
+			<a href="https://www.instagram.com/gleeern/">Instagram</a>
+		</p>
+	</section>
 
-	<h2>Me elsewhere</h2>
-	<p>
-		gweatherson@gmail.com<br>
-		<a href="https://www.instagram.com/gleeern/">Instagram</a>
-	</p>
-
-	<p>That's it for now, thanks for stopping by. I hope someone makes you laugh today!</p>	
+	<Goods />
 </Layout>
-<Goods />

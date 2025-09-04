@@ -4,6 +4,9 @@
     "goods": {
       "type": "object",
       "properties": {
+        "date": {
+          "type": "string"
+        },
         "title": {
           "type": "string"
         },
@@ -12,6 +15,7 @@
         }
       },
       "required": [
+        "date",
         "title"
       ],
       "additionalProperties": false
