@@ -4,10 +4,13 @@
     "goods": {
       "type": "object",
       "properties": {
+        "title": {
+          "type": "string"
+        },
         "date": {
           "type": "string"
         },
-        "title": {
+        "permalink": {
           "type": "string"
         },
         "$schema": {
@@ -15,8 +18,9 @@
         }
       },
       "required": [
+        "title",
         "date",
-        "title"
+        "permalink"
       ],
       "additionalProperties": false
     }

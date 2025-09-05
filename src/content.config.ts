@@ -4,8 +4,9 @@ import { glob, file } from 'astro/loaders';
 
 const goods = defineCollection({
   schema: z.object({
-    date: z.string().transform((date) => new Date(date)),
     title: z.string(),
+    date: z.string().transform((date) => new Date(date)),
+    permalink: z.string(),
   }),
 });
 

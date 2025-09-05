@@ -1,0 +1,26 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const goods = await getCollection('goods');
+
+  return goods.map((entry) => ({
+    params: { slug: entry.data.permalink },
+    props: { entry }
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const pageTitle = `Glenn Weatherson - ${entry.data.title}`;
+---
+
+<Layout pageTitle={pageTitle}>
+
+<article>
+  <a href="/goods/">Back to all Goods</a>
+  
+  <h1>{entry.data.date.toDateString()}</h1>
+  <Content />
+</article>
