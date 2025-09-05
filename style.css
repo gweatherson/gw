@@ -81,6 +81,7 @@ body {
   display: grid;
   grid-template-rows: auto auto;
   align-content: space-between;
+  gap: 2rem;
   container-name: main;
   container-type: inline-size;
   background: var(--color-white);
@@ -109,9 +110,10 @@ a {
 .container {
   display: grid;
   justify-content: space-between;
-  gap: 4rem;
+  gap: 2rem;
 
   @container (min-width: 768px) {
+    gap: 4rem;
     grid-template-columns: 40rem auto;
   }
 }
