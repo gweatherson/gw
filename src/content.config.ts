@@ -7,6 +7,7 @@ const goods = defineCollection({
     title: z.string(),
     date: z.string().transform((date) => new Date(date)),
     permalink: z.string(),
+    tags: z.array(z.string()).optional(),
   }),
 });
 

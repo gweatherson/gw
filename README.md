@@ -1,7 +1,8 @@
 # gw
-Personal site, still little but one day may be very big and strong!
+Personal site for fun!
 
 ## todo
-* good listing
-* goods single
+* tags architecture for goods
 * bio pic
+* actual bio
+* writing section

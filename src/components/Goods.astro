@@ -1,15 +1,15 @@
 ---
 import { getCollection } from 'astro:content';
 const goods = (await getCollection('goods'));
-const recent = goods[0];
+const recent = goods.reduce((a, b) => (a.data.date > b.data.date ? a : b));
 const formattedDate = recent.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: '2-digit' });
 const goodHTML = `
-    <h4>
+    <h5>
         <a href="/goods/${recent.data.permalink}/">
         ${formattedDate}
         </a>
-    </h4>
-    ${recent.rendered?.html}
+    </h5>
+    <small>${recent.rendered?.html}</small>
 `;
 ---
 
@@ -17,5 +17,15 @@ const goodHTML = `
     <h3>Goods</h3>
     <article set:html={goodHTML} />
 
-    <a href="/goods/" class="button">View more goods</a>
+    <a href="/goods/" class="button">Other goods</a>
 </aside>
+
+<style scoped>
+    article {
+        margin-block: var(--space-m);
+
+        li {
+            margin-block-end: var(--space-xs);
+        }
+    }
+</style>

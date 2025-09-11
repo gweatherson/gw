@@ -1,7 +1,33 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
 const pageTitle = "Glenn Weatherson - Get the goods!";
+
+const goods = (await getCollection('goods')).sort(
+	(a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
 ---
 <Layout pageTitle={pageTitle}>
-	Goods will live here, eventually..
+	<section>
+		<h1>Get the goods!</h1>
+
+		<ul>
+			{goods.map(good => (
+				<li>
+					<a href={`/goods/${good.data.permalink}/`}>
+						<h4>{good.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: '2-digit' })}</h4>
+					</a>
+
+					<div set:html={good.rendered?.html} />
+				</li>
+			))}
+		</ul>
+	</section>
 </Layout>
+
+<style scoped>
+	li {
+		margin-block-end: var(--space-l-xl);
+	}
+</style>

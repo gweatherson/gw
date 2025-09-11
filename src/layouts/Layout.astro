@@ -1,6 +1,7 @@
 ---
 import '/style.css';
 const { pageTitle } = Astro.props;
+import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 ---
 
@@ -13,10 +14,11 @@ import Footer from '../components/Footer.astro';
 		<meta
 		name="description"
 		content="The internet home of Glenn Weatherson, a web developer among other things based out of Reno, Nevada."
-		/>    
+		/>
 		<title>{pageTitle}</title>
 	</head>
 	<body>
+		<Header />
 		<main class="container">
             <slot />
 		</main>

@@ -68,7 +68,7 @@
   /* Space xl-2xl: 48px → 72px */
   --space-xl-2xl: clamp(3rem, 2.3864rem + 2.7273vw, 4.5rem);
   /* Space 2xl-3xl: 64px → 108px */
-  --space-2xl-3xl: clamp(4rem, 2.875rem + 5vw, 6.75rem);  
+  --space-2xl-3xl: clamp(4rem, 2.875rem + 5vw, 6.75rem);
 }
 
 html,
@@ -79,9 +79,10 @@ body {
 
 body {
   display: grid;
-  grid-template-rows: auto auto;
+  grid-template-rows: auto 1fr auto;
   align-content: space-between;
-  gap: var(--space-xl-2xl);
+  row-gap: var(--space-m);
+  column-gap: var(--space-xl-2xl);
   container-name: main;
   container-type: inline-size;
   background: var(--color-white);
@@ -111,7 +112,7 @@ a {
     &::selection {
       background-color: var(--color-green);
       color: var(--color-white);
-    }      
+    }
   }
 
   a {
@@ -122,19 +123,40 @@ a {
 .container {
   display: grid;
   justify-content: space-between;
-  gap: var(--space-2xl-3xl);
+  gap: var(--space-m);
 
   @container (min-width: 768px) {
+    gap: var(--space-2xl-3xl);
     grid-template-columns: 1fr 14rem;
   }
 }
 
 .button {
+  font-size: var(--step-0);
   border: 1px solid var(--color-green);
   text-decoration: none;
   padding: 0.5rem 0.8rem;
   text-transform: uppercase;
   display: inline-flex;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background: var(--color-green);
+    color: var(--color-white);
+  }
+
+  &:has(> svg) {
+    display: inline-flex;
+    gap: 0.25rem;
+    align-items: center;
+
+    svg {
+      width: auto;
+      height: 1rem;
+      fill: currentColor;
+    }
+  }
 }
 
 h1 {
@@ -178,10 +200,13 @@ p {
 ul {
   margin-block-end: var(--space-m);
   padding-inline: 1.1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 li {
-  margin-block-end: var(--space-3xs);
+  margin-block-end: var(--space-2xs);
 }
 
 small {
