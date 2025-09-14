@@ -28,6 +28,10 @@ const goodHTML: string = `
     .goods-aside {
         margin-block-end: var(--space-2xl);
 
+        @container (max-width: 768px) {
+            margin-block-start: var(--space-m);
+        }
+
         li {
             margin-block-end: var(--space-xs);
             font-size: var(--step--1);
