@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
+import { renderBadges } from '../../utils/renderBadges';
 
 const pageTitle = "Glenn Weatherson - Get the goods!";
 
@@ -10,7 +11,9 @@ const goods = (await getCollection('goods')).sort(
 ---
 <Layout pageTitle={pageTitle}>
 	<section>
-		<h1>Get the goods!</h1>
+		<h1 class="line">
+			<span>Get the goods!</span>
+		</h1>
 
 		<ul>
 			{goods.map(good => (
@@ -19,7 +22,7 @@ const goods = (await getCollection('goods')).sort(
 						<h4>{good.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: '2-digit' })}</h4>
 					</a>
 
-					<div set:html={good.rendered?.html} />
+					<div set:html={renderBadges(good.rendered?.html ?? "")} />
 				</li>
 			))}
 		</ul>

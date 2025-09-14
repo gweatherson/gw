@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
+import { renderBadges } from '../../utils/renderBadges';
 
 export async function getStaticPaths() {
   const goods = await getCollection('goods');
@@ -12,7 +13,6 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const { Content } = await entry.render();
 const pageTitle = `Glenn Weatherson - ${entry.data.title}`;
 ---
 
@@ -25,8 +25,9 @@ const pageTitle = `Glenn Weatherson - ${entry.data.title}`;
     Back to all Goods
   </a>
 
-  <h1>{entry.data.date.toDateString()}</h1>
-  <Content />
+  <h1>{entry.data.title}</h1>
+  <h4>{entry.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: '2-digit' })}</h4>
+  <div set:html={renderBadges(entry.rendered?.html ?? "")} />
 </article>
 
 <style scoped>

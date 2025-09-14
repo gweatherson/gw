@@ -1,33 +1,42 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Goods from '../components/Goods.astro';
+import Aside from '../components/Aside.astro';
 const pageTitle = "Glenn Weatherson";
 ---
 <Layout pageTitle="Glenn Weatherson">
 	<section class="main-content">
-		<h1>Glenn lives here</h1>
 
-		<p>I'm a web developer living in Reno, Nevada. During the day I work at <a href="https://970design.com">970 Design</a>, I'm also open to projects on the side.</p>
+		<article>
+			<h1 class="visually-hidden">The home of {pageTitle}</h1>
 
-		<h2>Favorite things outside of work:</h2>
+			<h2 class="line">
+				<span>Intro</span>
+			</h2>
 
-		<ul>
-			<li>Mountain biking, and bicycles in general.</li>
-			<li>Heavy music.</li>
-			<li>Trying to make my dogs tired.</li>
-			<li>Video games like <a href="https://www.counter-strike.net/cs2">CS2</a> and <a href="https://store.steampowered.com/app/3241660/REPO/">R.E.P.O.</a></li>
-			<li>Trying not to die.</li>
-			<li>Finding new music.</li>
-			<li>Snowboarding.</li>
-			<li>Grilling hot dogs.</li>
-		</ul>
+			<p>I'm a web developer living in Reno, Nevada. During the day I work at <a href="https://970design.com">970 Design</a>. Most of my career has been building websites from the ground up using Wordpress, although I've been taking quite a liking to Astro and am open to other tooling. I find joy in the process of turning a new design into a coded, usable experience, especially when there are new things to try along the way.</p>
 
-		<h2>Me elsewhere</h2>
-		<p>
-			gweatherson@gmail.com<br>
-			<a href="https://www.instagram.com/gleeern/">Instagram</a>
-		</p>
+			<p>Some of the most notable client work I've been a part of include GoPro, Nike, Tahiti, Yosemite, Pokemon, and more.</p>
+
+			<span class="badge">Available for side projects</span>
+		</article>
+
+		<article>
+			<h2 class="line">
+				<span>Interests</span>
+			</h2>
+
+			<ul class="bullseye">
+				<li>Mountain biking, and bicycles in general.</li>
+				<li>Heavy music.</li>
+				<li>Everyday, attempting to make my dogs tired.</li>
+				<li>Video games like <a href="https://www.counter-strike.net/cs2">CS2</a> and <a href="https://store.steampowered.com/app/3241660/REPO/">R.E.P.O.</a></li>
+				<li>Trying not to die.</li>
+				<li>Finding new music.</li>
+				<li>Snowboarding.</li>
+				<li>Getting rid of things.</li>
+			</ul>
+		</article>
 	</section>
 
-	<Goods />
+	<Aside />
 </Layout>

@@ -1,37 +1,47 @@
 @import "src/styles/reset.css";
 
 @font-face {
-  font-family: 'Tirra';
+  font-family: "IBM Plex Serif", serif;
   font-style: normal;
   font-weight: 400;
-  src: url('./fonts/Tirra-Regular.ttf') format('truetype');
+  src: url('./fonts/IBMPlexSerif-Regular.ttf') format('truetype');
 }
 
-/* @link https://utopia.fyi/space/calculator?c=360,16,1.2,1240,18,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+@font-face {
+  font-family: "IBM Plex Mono", monospace;
+  font-style: normal;
+  font-weight: 400;
+  src: url('./fonts/IBMPlexMono-Regular.ttf') format('truetype');
+}
+
+
 :root {
   --container-width: 40rem;
 
-  --color-green: #556B2F;
-  --color-green-light: #c7e1a1;
   --color-white: #fefffd;
   --color-black: #020500;
 
-  /* Step -2: 11.1111px → 11.52px */
-  --step--2: clamp(0.6944rem, 0.684rem + 0.0465vw, 0.72rem);
-  /* Step -1: 13.3333px → 14.4px */
-  --step--1: clamp(0.8333rem, 0.8061rem + 0.1212vw, 0.9rem);
+  --font-mono: 'IBM Plex Mono', monospace;
+  --font-serif: 'IBM Plex Serif', serif;
+
+/* https://utopia.fyi/type/calculator?c=360,16,1.125,1240,18,1.125,4,3,&s=0.75%7C0.5%7C0.25,1.5%7C2%7C3%7C4%7C6,s-l&g=s,l,xl,12 */
+
+  /* Step -3: 11.2373px → 12.642px */
+  --step--3: clamp(0.7023rem, 0.6664rem + 0.1596vw, 0.7901rem);
+  /* Step -2: 12.642px → 14.2222px */
+  --step--2: clamp(0.7901rem, 0.7497rem + 0.1796vw, 0.8889rem);
+  /* Step -1: 14.2222px → 16px */
+  --step--1: clamp(0.8889rem, 0.8434rem + 0.202vw, 1rem);
   /* Step 0: 16px → 18px */
   --step-0: clamp(1rem, 0.9489rem + 0.2273vw, 1.125rem);
-  /* Step 1: 19.2px → 22.5px */
-  --step-1: clamp(1.2rem, 1.1156rem + 0.375vw, 1.4063rem);
-  /* Step 2: 23.04px → 28.125px */
-  --step-2: clamp(1.44rem, 1.31rem + 0.5778vw, 1.7578rem);
-  /* Step 3: 27.648px → 35.1563px */
-  --step-3: clamp(1.728rem, 1.536rem + 0.8532vw, 2.1973rem);
-  /* Step 4: 33.1776px → 43.9453px */
-  --step-4: clamp(2.0736rem, 1.7983rem + 1.2236vw, 2.7466rem);
-  /* Step 5: 39.8131px → 54.9316px */
-  --step-5: clamp(2.4883rem, 2.1018rem + 1.718vw, 3.4332rem);
+  /* Step 1: 18px → 20.25px */
+  --step-1: clamp(1.125rem, 1.0675rem + 0.2557vw, 1.2656rem);
+  /* Step 2: 20.25px → 22.7813px */
+  --step-2: clamp(1.2656rem, 1.2009rem + 0.2876vw, 1.4238rem);
+  /* Step 3: 22.7813px → 25.6289px */
+  --step-3: clamp(1.4238rem, 1.351rem + 0.3236vw, 1.6018rem);
+  /* Step 4: 25.6289px → 28.8325px */
+  --step-4: clamp(1.6018rem, 1.5199rem + 0.364vw, 1.802rem);
 
   /* Space 3xs: 4px → 5px */
   --space-3xs: clamp(0.25rem, 0.2244rem + 0.1136vw, 0.3125rem);
@@ -71,6 +81,18 @@
   --space-2xl-3xl: clamp(4rem, 2.875rem + 5vw, 6.75rem);
 }
 
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+
 html,
 body {
   min-height: 100dvh;
@@ -88,10 +110,10 @@ body {
   background: var(--color-white);
   color: var(--color-black);
   padding: 1.5rem;
-  font-family: "Tirra", sans-serif;
+  font-family: var(--font-serif);
   font-weight: 400;
   font-size: var(--step-0);
-  line-height: 1.4;
+  line-height: 1.6;
 
   &::selection {
     background-color: var(--color-black);
@@ -100,8 +122,8 @@ body {
 }
 
 a {
-  color: var(--color-green);
-  text-underline-offset: 0.25em;
+  color: var(--color-black);
+  text-underline-offset: 0.1rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -110,13 +132,13 @@ a {
     color: var(--color-white);
 
     &::selection {
-      background-color: var(--color-green);
-      color: var(--color-white);
+      background-color: var(--color-white);
+      color: var(--color-black);
     }
   }
 
   a {
-    color: var(--color-green-light);
+    color: var(--color-white);
   }
 }
 
@@ -127,23 +149,34 @@ a {
 
   @container (min-width: 768px) {
     gap: var(--space-2xl-3xl);
-    grid-template-columns: 1fr 14rem;
+    grid-template-columns: 1fr auto;
   }
 }
 
 .button {
-  font-size: var(--step-0);
-  border: 1px solid var(--color-green);
+  font-size: var(--step--3);
+  border: 1px solid var(--color-black);
+  font-family: var(--font-mono);
   text-decoration: none;
   padding: 0.5rem 0.8rem;
   text-transform: uppercase;
   display: inline-flex;
 
+  @media (prefers-color-scheme: dark) {
+    border-color: var(--color-white);
+    color: var(--color-white);
+  }
+
   &:hover,
   &:focus,
   &:active {
-    background: var(--color-green);
+    background: var(--color-black);
     color: var(--color-white);
+
+    @media (prefers-color-scheme: dark) {
+      background: var(--color-white);
+      color: var(--color-black);
+    }
   }
 
   &:has(> svg) {
@@ -159,12 +192,54 @@ a {
   }
 }
 
+.line {
+  position: relative;
+
+  span {
+    background: var(--color-white);
+    padding-inline-end: 0.8rem;
+    position: relative;
+    z-index: 1;
+
+    @media (prefers-color-scheme: dark) {
+      background: var(--color-black);
+    }
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: calc(50% - 1px);
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--color-black);
+
+    @media (prefers-color-scheme: dark) {
+      background: var(--color-white);
+    }
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-transform: uppercase;
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 400;
+  line-height: 1;
+  margin-block-end: var(--space-l);
+}
+
 h1 {
-  font-size: var(--step-4);
+  font-size: var(--step--1);
 }
 
 h2 {
-  font-size: var(--step-3);
+  font-size: var(--step--2);
 }
 
 h3 {
@@ -183,30 +258,57 @@ h6 {
   font-size: var(--step-0);
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  line-height: 1;
-  margin-block-end: var(--space-s);
-}
-
 p {
-  margin-block-end: var(--space-m);
+  margin-block-end: var(--space-l);
+  font-family: var(--font-serif)
 }
 
 ul {
+  padding-inline: 0;
+  list-style: none;
+}
+
+ul.bullseye {
+  font-family: var(--font-serif);
   margin-block-end: var(--space-m);
   padding-inline: 1.1rem;
   list-style: none;
   padding: 0;
   margin: 0;
+
+  li {
+    position: relative;
+    padding-inline-start: 1.5rem;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      background: var(--color-black);
+
+      @media (prefers-color-scheme: dark) {
+        background: var(--color-white);
+      }
+    }
+
+    &::before {
+      top: calc(50% - 4px);
+      left: 4px;
+      width: 1px;
+      height: 9px;
+    }
+
+    &::after {
+      left: 0;
+      top: calc(50% - 0px);
+      width: 9px;
+      height: 1px;
+    }
+  }
 }
 
 li {
-  margin-block-end: var(--space-2xs);
+  margin-block-end: 0.2rem;
 }
 
 small {
@@ -215,4 +317,29 @@ small {
 
 .main-content {
   max-width: var(--container-width);
+
+  article:not(:last-child) {
+    margin-block-end: var(--space-2xl);
+  }
+}
+
+.badge {
+  font-size: var(--step--3);
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  background: var(--color-black);
+  color: var(--color-white);
+  line-height: 1;
+  display: inline-block;
+  padding: 0.5rem 0.8rem;
+  border-radius: 5px;
+
+  @media (prefers-color-scheme: dark) {
+    background: var(--color-white);
+    color: var(--color-black);
+  }
+
+  &.badge-xs {
+    padding: 0.2rem 0.3rem;
+  }
 }

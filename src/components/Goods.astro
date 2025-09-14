@@ -1,31 +1,45 @@
 ---
 import { getCollection } from 'astro:content';
+import { renderBadges } from '../utils/renderBadges';
 const goods = (await getCollection('goods'));
 const recent = goods.reduce((a, b) => (a.data.date > b.data.date ? a : b));
 const formattedDate = recent.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: '2-digit' });
-const goodHTML = `
-    <h5>
+const goodHTML: string = `
+    <h2>
         <a href="/goods/${recent.data.permalink}/">
         ${formattedDate}
         </a>
-    </h5>
+    </h2>
     <small>${recent.rendered?.html}</small>
 `;
 ---
 
-<aside>
-    <h3>Goods</h3>
-    <article set:html={goodHTML} />
+<div class="goods-aside">
+    <h2 class="line">
+        <span>Goods</span>
+    </h2>
+
+    <article set:html={renderBadges(recent.rendered?.html ?? "")} />
 
     <a href="/goods/" class="button">Other goods</a>
-</aside>
+</div>
 
 <style scoped>
-    article {
-        margin-block: var(--space-m);
+    .goods-aside {
+        margin-block-end: var(--space-2xl);
 
         li {
             margin-block-end: var(--space-xs);
+            font-size: var(--step--1);
+            line-height: 1.2;
+        }
+
+        .badge {
+            margin-block-end: 0.2rem;
+        }
+
+        .button {
+            margin-block-start: var(--space-m);
         }
     }
 </style>
