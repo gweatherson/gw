@@ -10,19 +10,20 @@ const goods = (await getCollection('goods')).sort(
 );
 ---
 <Layout pageTitle={pageTitle}>
-	<section>
+	<section class="main-content">
 		<h1 class="line">
-			<span>Get the goods!</span>
+			<span>Get the goods</span>
 		</h1>
 
 		<ul>
 			{goods.map(good => (
 				<li>
-					<a href={`/goods/${good.data.permalink}/`}>
-						<h4>{good.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: '2-digit' })}</h4>
-					</a>
-
 					<div set:html={renderBadges(good.rendered?.html ?? "")} />
+
+					<a href={`/goods/${good.data.permalink}/`} class="button">
+						Permalink
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M224.5 160C224.5 147.1 232.3 135.4 244.3 130.4C256.3 125.4 270 128.2 279.1 137.4L439.1 297.4C451.6 309.9 451.6 330.2 439.1 342.7L279.1 502.7C269.9 511.9 256.2 514.6 244.2 509.6C232.2 504.6 224.5 492.9 224.5 480L224.5 160z"/></svg>
+					</a>
 				</li>
 			))}
 		</ul>
@@ -31,6 +32,10 @@ const goods = (await getCollection('goods')).sort(
 
 <style scoped>
 	li {
-		margin-block-end: var(--space-l-xl);
+		margin-block-end: var(--space-2xl);
+
+		.button {
+			margin-block-start: var(--space-s);
+		}
 	}
 </style>

@@ -144,12 +144,15 @@ a {
 
 .container {
   display: grid;
-  justify-content: space-between;
   gap: var(--space-m);
 
   @container (min-width: 768px) {
     gap: var(--space-2xl-3xl);
     grid-template-columns: 1fr auto;
+  }
+
+  &:has(aside) {
+    justify-content: space-between;
   }
 }
 
