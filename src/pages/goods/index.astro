@@ -32,7 +32,9 @@ const goods = (await getCollection('goods')).sort(
 
 <style scoped>
 	li {
-		margin-block-end: var(--space-2xl);
+		&:not(:last-child) {
+			margin-block-end: var(--space-2xl);
+		}
 
 		.button {
 			margin-block-start: var(--space-s);
