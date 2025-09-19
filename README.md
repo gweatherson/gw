@@ -3,7 +3,7 @@ Personal site for fun!
 
 ## todo
 * clean up secondary pages
-* more design, maybe textures or something else idk
+* texture or noise design
 * tags architecture for goods
 * bio pic
 * writing section
