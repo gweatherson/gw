@@ -3,6 +3,7 @@ import '/style.css';
 const { pageTitle } = Astro.props;
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { ClientRouter } from "astro:transitions";
 ---
 
 <html lang="en">
@@ -15,6 +16,7 @@ import Footer from '../components/Footer.astro';
 		name="description"
 		content="The internet home of Glenn Weatherson, a web developer among other things based out of Reno, Nevada."
 		/>
+		<ClientRouter />
 		<title>{pageTitle}</title>
 	</head>
 	<body>
