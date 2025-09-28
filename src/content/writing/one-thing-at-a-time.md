@@ -4,7 +4,7 @@ date: 09-27-2025
 permalink: one-thing-at-a-time
 ---
 
-Sounds simple, even writing this felt difficult at times. Maybe it's social media absolutely plummeting my attention span. Perhaps it's how my brain functions. Probably both among other stuff. What I'm getting at is a daily occurrence, it's hard to do one thing at a time, even if that means thinking about one thing at a time. Of course there are tools to help with this like meditation, visually clearing your area, getting rid of excess belongings, exercise, etc. But that's a much larger realm
+Sounds simple, even writing this felt difficult at times. Maybe it's social media absolutely plummeting my attention span. Perhaps it's how my brain functions. Probably both among other stuff. What I'm getting at is a daily occurrence, it's hard to do one thing at a time, even if that means thinking about one thing at a time. Of course there are tools to help with this like meditation, visually clearing your area, getting rid of excess belongings, exercise, etc. But that's a much larger realm.
 
 What I'm getting at is during work I try to focus on one thing at a time. Work is all about getting things done, being productive, the more the better. Often that translates to multi-tasking: Knock this quick thing out, then go back to what I was working on. Oh, someone messaged me, let me reply real quick, now onto another new thing. Let me check this email. My phone vibrated, let's check it. Sound familiar? This could go on all day.
 
