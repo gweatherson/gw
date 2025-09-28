@@ -1,0 +1,35 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const pageTitle = "Glenn Weatherson - Writing!";
+
+const writing = (await getCollection('writing')).sort(
+	(a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+---
+<Layout pageTitle={pageTitle}>
+	<section class="main-content">
+		<h1 class="line">
+			<span>Writing</span>
+		</h1>
+
+		<ul>
+			{writing.map(item => (
+				<li>
+					<h2>
+						<a href={`/writing/${item.data.permalink}/`}>{item.data.title}</a>
+					</h2>
+				</li>
+			))}
+		</ul>
+	</section>
+</Layout>
+
+<style scoped>
+	li {
+		&:not(:last-child) {
+			margin-block-end: var(--space-2xl);
+		}
+	}
+</style>
