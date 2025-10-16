@@ -11,4 +11,12 @@ const goods = defineCollection({
   }),
 });
 
-export const collections = { goods };
+const writing = defineCollection({
+  schema: z.object({
+    title: z.string(),
+    date: z.string().transform((date) => new Date(date)),
+    permalink: z.string(),
+  }),
+});
+
+export const collections = { goods, writing };

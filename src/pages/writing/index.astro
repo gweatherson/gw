@@ -10,7 +10,7 @@ const writing = (await getCollection('writing')).sort(
 ---
 <Layout pageTitle={pageTitle}>
 	<section class="main-content">
-		<h1 class="line">
+		<h1 class="heading-line">
 			<span>Writing</span>
 		</h1>
 
@@ -27,9 +27,7 @@ const writing = (await getCollection('writing')).sort(
 </Layout>
 
 <style scoped>
-	li {
-		&:not(:last-child) {
-			margin-block-end: var(--space-2xl);
-		}
+	li h2 {
+		margin-block-end: var(--space-s);
 	}
 </style>
