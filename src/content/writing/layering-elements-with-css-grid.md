@@ -13,7 +13,7 @@ One of my favorite little css tricks is using grid to stack elements when needed
     }
 
     .first-child,
-    section-child {
+    .section-child {
       grid-area: 1 / 1;
     }
 
