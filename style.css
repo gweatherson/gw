@@ -14,8 +14,9 @@
   src: url('./fonts/IBMPlexMono-Regular.ttf') format('truetype');
 }
 
-
 :root {
+  color-scheme: light dark;
+  --container-width-full: 90rem;
   --container-width: 40rem;
 
   --color-white: #fefffd;
@@ -114,7 +115,8 @@ body {
   column-gap: var(--space-xl-2xl);
   container-name: main;
   container-type: inline-size;
-  color: var(--color-black);
+  background: light-dark(var(--color-white), var(--color-black));
+  color: light-dark(var(--color-black, var(--color-white)));
   padding: 1.5rem;
   font-family: var(--font-sans);
   font-weight: 400;
@@ -136,46 +138,27 @@ body {
   }
 
   &::selection {
-    background-color: var(--color-black);
-    color: var(--color-white);
+    background-color: light-dark(var(--color-black), var(--color-white));
+    color: light-dark(var(--color-white), var(--color-black));
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body::before {
+    filter: invert(1);
   }
 }
 
 a {
-  color: var(--color-black);
+  color: light-dark(var(--color-black), var(--color-white));
   text-underline-offset: 0.1rem;
 
   &:hover,
   &:focus,
   &:active {
     text-decoration: none;
-    background: var(--color-black);
-    color: var(--color-white);
-
-    @media (prefers-color-scheme: dark) {
-      background: var(--color-white);
-      color: var(--color-black);
-    }
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: var(--color-black);
-    color: var(--color-white);
-
-    &::before {
-      filter: invert(1);
-    }
-
-    &::selection {
-      background-color: var(--color-white);
-      color: var(--color-black);
-    }
-  }
-
-  a {
-    color: var(--color-white);
+    background: light-dark(var(--color-black), var(--color-white));
+    color: light-dark(var(--color-white), var(--color-black));
   }
 }
 
@@ -195,28 +178,20 @@ a {
 
 .button {
   font-size: var(--step--3);
-  border: 1px solid var(--color-black);
+  border: 1px solid;
+  border-color: light-dark(var(--color-black), var(--color-white));
+  color: light-dark(var(--color-black), var(--color-white));
   font-family: var(--font-mono);
   text-decoration: none;
   padding: 0.5rem 0.8rem;
   text-transform: uppercase;
   display: inline-flex;
 
-  @media (prefers-color-scheme: dark) {
-    border-color: var(--color-white);
-    color: var(--color-white);
-  }
-
   &:hover,
   &:focus,
   &:active {
-    background: var(--color-black);
-    color: var(--color-white);
-
-    @media (prefers-color-scheme: dark) {
-      background: var(--color-white);
-      color: var(--color-black);
-    }
+    background: light-dark(var(--color-black), var(--color-white));
+    color: light-dark(var(--color-white), var(--color-black));
   }
 
   &:has(> svg) {
@@ -236,14 +211,10 @@ a {
   position: relative;
 
   span {
-    background: var(--color-white);
+    background: light-dark(var(--color-white), var(--color-black));
     padding-inline-end: 0.8rem;
     position: relative;
     z-index: 1;
-
-    @media (prefers-color-scheme: dark) {
-      background: var(--color-black);
-    }
   }
 
   &::after {
@@ -253,11 +224,7 @@ a {
     left: 0;
     width: 100%;
     height: 1px;
-    background: var(--color-black);
-
-    @media (prefers-color-scheme: dark) {
-      background: var(--color-white);
-    }
+    background: light-dark(var(--color-black), var(--color-white));
   }
 }
 
@@ -328,11 +295,7 @@ ul.bullseye {
     &::after {
       content: "";
       position: absolute;
-      background: var(--color-black);
-
-      @media (prefers-color-scheme: dark) {
-        background: var(--color-white);
-      }
+      background: light-dark(var(--color-black), var(--color-white));
     }
 
     &::before {
@@ -370,23 +333,22 @@ pre {
   article:not(:last-child) {
     margin-block-end: var(--space-2xl);
   }
+
+  &.full {
+    max-width: var(--container-width-full);
+  }
 }
 
 .badge {
   font-size: var(--step--3);
   font-family: var(--font-mono);
   text-transform: uppercase;
-  background: var(--color-black);
-  color: var(--color-white);
+  background: light-dark(var(--color-black), var(--color-white));
+  color: light-dark(var(--color-white), var(--color-black));
   line-height: 1;
   display: inline-block;
   padding: 0.5rem 0.8rem;
   border-radius: 5px;
-
-  @media (prefers-color-scheme: dark) {
-    background: var(--color-white);
-    color: var(--color-black);
-  }
 
   &.badge-xs {
     padding: 0.2rem 0.3rem;
