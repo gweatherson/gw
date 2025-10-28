@@ -10,12 +10,12 @@ const goods = (await getCollection('goods')).sort(
 );
 ---
 <Layout pageTitle={pageTitle}>
-	<section class="main-content">
+	<section class="main-content full">
 		<h1 class="heading-line">
 			<span>Get the goods</span>
 		</h1>
 
-		<ul>
+		<ul class="goods__grid">
 			{goods.map(good => (
 				<li>
 					<div set:html={renderBadges(good.rendered?.html ?? "")} />
@@ -31,11 +31,13 @@ const goods = (await getCollection('goods')).sort(
 </Layout>
 
 <style scoped>
-	li {
-		&:not(:last-child) {
-			margin-block-end: var(--space-2xl);
-		}
+	.goods__grid {
+		display: grid;
+		gap: var(--space-xl);
+		grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+	}
 
+	li {
 		.button {
 			margin-block-start: var(--space-s);
 		}
