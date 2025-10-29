@@ -2,6 +2,8 @@
 Personal site for fun!
 
 ## todo
-* tags architecture for goods
+* .flow css for better writing layout
+* can the goods badges be used? click on one to listing of all goods in that
 * bio pic
-* writing section
+* og image
+* show preview of most recent blog post on home page
