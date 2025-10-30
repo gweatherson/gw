@@ -33,13 +33,15 @@ But what's so bad about that? Nothing! But when you start increasing a site's sc
 
 Now, onto the light-dark() example.
 
-```root: {
+```css
+root: {
   color-scheme: light dark;
 }
 
 body {
   background: light-dark(white, black);
-}```
+}
+```
 
 Ahh, bliss, sure you have to define the a root variable but there's nothing like 1 liners afterwards.
 

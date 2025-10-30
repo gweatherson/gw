@@ -35,6 +35,7 @@ I often use these rules for stacking in a hero, but basically any place where a 
   Grid Area Hero</a> by Glenn Weatherson (<a href="https://codepen.io/gweatherson">@gweatherson</a>)
   on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
+<script async src="https://public.codepenassets.com/embed/index.js"></script>
 
 [Link to Codepen](https://codepen.io/gweatherson/pen/ZYQJYxo)
 
