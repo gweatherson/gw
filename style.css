@@ -115,6 +115,7 @@ a {
   }
 
   &:has(> svg) {
+    margin-block-start: var(--space-m);
     display: inline-flex;
     gap: 0.25rem;
     align-items: center;
@@ -129,6 +130,8 @@ a {
 
 .heading-line {
   position: relative;
+  margin-block-start: 0;
+  margin-block-end: var(--space-m);
 
   span {
     background: light-dark(var(--color-white), var(--color-black));
@@ -170,8 +173,21 @@ a {
   display: inline-block;
   padding: 0.5rem 0.8rem;
   border-radius: 5px;
+  text-decoration: none;
 
   &.badge-xs {
     padding: 0.2rem 0.3rem;
   }
+
+  &:hover,
+  &:focus {
+    background: light-dark(var(--color-white), var(--color-black));
+    color: light-dark(var(--color-black), var(--color-white));
+  }
+}
+
+ul.grid {
+  display: grid;
+  gap: var(--space-xl);
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
 }

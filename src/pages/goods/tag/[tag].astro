@@ -1,0 +1,50 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import { getCollection } from 'astro:content';
+import { extractTagsFromContent, getGoodsWithTag } from "../../../utils/extractTags";
+import { renderBadges } from "../../../utils/renderBadges";
+
+export async function getStaticPaths() {
+  const goods = await getCollection('goods');
+
+  // Extract all unique tags from the goods!
+  const allTags = new Set<string>();
+  goods.forEach(good => {
+    const tags = extractTagsFromContent(good.rendered?.html ?? '');
+    tags.forEach(tag => allTags.add(tag));
+  });
+
+  return Array.from(allTags).map(tag => ({
+    params: { tag }
+  }));
+}
+
+const { tag } = Astro.params;
+const goods = await getCollection('goods');
+const taggedGoods = getGoodsWithTag(goods, tag!).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+
+const pageTitle = `Goods tagged with #${tag}`;
+---
+
+<Layout pageTitle={pageTitle}>
+  <section class="main-content full list">
+    <h1 class="heading-line">
+			<span>{pageTitle}</span>
+		</h1>
+
+    <ul class="grid">
+      {taggedGoods.map(good => (
+        <li>
+          <div set:html={renderBadges(good.rendered?.html ?? "")} />
+
+					<a href={`/goods/${good.data.permalink}/`} class="button">
+						Permalink
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M224.5 160C224.5 147.1 232.3 135.4 244.3 130.4C256.3 125.4 270 128.2 279.1 137.4L439.1 297.4C451.6 309.9 451.6 330.2 439.1 342.7L279.1 502.7C269.9 511.9 256.2 514.6 244.2 509.6C232.2 504.6 224.5 492.9 224.5 480L224.5 160z"/></svg>
+					</a>
+        </li>
+      ))}
+    </ul>
+  </section>
+</Layout>

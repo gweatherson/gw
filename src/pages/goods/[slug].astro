@@ -18,7 +18,7 @@ const pageTitle = `Glenn Weatherson - ${entry.data.title}`;
 
 <Layout pageTitle={pageTitle}>
 
-<article class="main-content">
+<article class="main-content list">
   <h1 class="heading-line">
     <span>
       {entry.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: '2-digit' })}
@@ -32,9 +32,3 @@ const pageTitle = `Glenn Weatherson - ${entry.data.title}`;
     Back to all Goods
   </a>
 </article>
-
-<style scoped>
-  .back {
-    margin-block-start: var(--space-m);
-  }
-</style>

@@ -22,7 +22,6 @@ h6 {
   font-family: "IBM Plex Mono", monospace;
   font-weight: 400;
   line-height: 1;
-  margin-block-end: var(--space-l);
 }
 
 h1 {
@@ -50,13 +49,8 @@ h6 {
 }
 
 p {
-  margin-block-start: var(--space-l);
-  margin-block-end: var(--space-2xs);
-  font-family: var(--font-sans)
-}
-
-pre {
-  margin-block-end: var(--space-l);
+  font-family: var(--font-sans);
+  margin-block-end: var(--space-m);
 }
 
 ul {
@@ -64,8 +58,25 @@ ul {
   list-style: none;
 }
 
-.flow ul {
-  margin-block-start: var(--space-m);
+.list,
+.flow,
+.single {
+  .heading-line {
+    margin-block-end: var(--space-xl);
+  }
+
+  .button {
+    margin-block-start: var(--space-s);
+  }
+}
+
+.list h2 a {
+  margin-block-end: var(--space-2xs);
+  display: inline-flex;
+}
+
+.flow>*+* {
+  margin-block-start: var(--space-l);
 }
 
 ul.bullseye {
@@ -112,6 +123,11 @@ small {
 }
 
 pre {
-  border: 2px solid var(--color-white);
-  padding: var(--space-m);
+  border: 1px solid var(--color-white);
+  padding: var(--space-2xs) var(--space-xs);
+  max-width: calc(100vw - 3rem);
+
+  * {
+    font-size: var(--step--2);
+  }
 }
