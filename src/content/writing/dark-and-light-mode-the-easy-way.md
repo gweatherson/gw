@@ -10,13 +10,15 @@ But today we're going over a simplified way with the handy [light-dark CSS funct
 
 Before we get to the final example let's go over how this would be done using a media query with [prefers-color-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme).
 
-    body {
-      background: white;
+```css
+body {
+  background: white;
 
-      @media (prefers-color-scheme: dark) {
-        background: black;
-      }
-    }
+  @media (prefers-color-scheme: dark) {
+    background: black;
+  }
+}
+```
 
 Let's look at a demo:
 <p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="PwZBZWz" data-pen-title="prefers-color-scheme example" data-user="gweatherson" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
@@ -31,13 +33,13 @@ But what's so bad about that? Nothing! But when you start increasing a site's sc
 
 Now, onto the light-dark() example.
 
-      root: {
-        color-scheme: light dark;
-      }
+```root: {
+  color-scheme: light dark;
+}
 
-      body {
-        background: light-dark(white, black);
-      }
+body {
+  background: light-dark(white, black);
+}```
 
 Ahh, bliss, sure you have to define the a root variable but there's nothing like 1 liners afterwards.
 
