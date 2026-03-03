@@ -79,7 +79,7 @@ ul {
   margin-block-start: var(--space-l);
 }
 
-ul.bullseye {
+ul.bullseye, .editor ul {
   font-family: var(--font-sans);
   margin-block-end: var(--space-m);
   padding-inline: 1.1rem;
@@ -99,7 +99,7 @@ ul.bullseye {
     }
 
     &::before {
-      top: calc(50% - 4px);
+      top: 10px;
       left: 4px;
       width: 1px;
       height: 9px;
@@ -107,7 +107,7 @@ ul.bullseye {
 
     &::after {
       left: 0;
-      top: calc(50% - 0px);
+      top: 14px;
       width: 9px;
       height: 1px;
     }
