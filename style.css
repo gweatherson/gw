@@ -191,3 +191,13 @@ ul.grid {
   gap: var(--space-xl);
   grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
 }
+
+.youtube-card {
+  border: 2px solid light-dark(var(--color-black), var(--color-white));
+  display: flex;
+  justify-content: center;
+
+  p {
+    margin-block-end: 0;
+  }
+}

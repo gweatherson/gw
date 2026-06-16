@@ -1,35 +1,29 @@
 {
-  "$ref": "#/definitions/goods",
-  "definitions": {
-    "goods": {
-      "type": "object",
-      "properties": {
-        "title": {
-          "type": "string"
-        },
-        "date": {
-          "type": "string"
-        },
-        "permalink": {
-          "type": "string"
-        },
-        "tags": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "$schema": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "title",
-        "date",
-        "permalink"
-      ],
-      "additionalProperties": false
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string"
+    },
+    "permalink": {
+      "type": "string"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "$schema": {
+      "type": "string"
     }
   },
-  "$schema": "http://json-schema.org/draft-07/schema#"
+  "required": [
+    "title",
+    "date",
+    "permalink"
+  ]
 }
